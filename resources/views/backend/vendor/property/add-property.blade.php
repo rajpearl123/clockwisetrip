@@ -1,11 +1,6 @@
 @extends('backend.vendor.layouts.app')
 @section('title', 'Add Property')
 @section('content')
-
-
-
-
-
 <!-- <section class="mt-5 Add-property-new">
     <div class="container">
         <div class="row py-5 card mx-2 ">
@@ -121,7 +116,7 @@
 </section> -->
 
 <section class="mt-5 py-5">
-    <form action="#" method="POST" id="user_information">
+    <form action="{{route('vendor.addProperty')}}" method="POST" id="user_information" enctype="multipart/form-data">
         @csrf
         {{-- <input type="hidden" name="id" value="{{ $id }}"> --}}
         <div class="container my-4">
@@ -156,32 +151,13 @@
 
                             <div>
                                 <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-1">
-                                        <input type="radio" id="radio-1" name="bussiness_details" value="NONE" class="bc-1">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXVA9sTnb9WazLL_eaqAQNlNQGXVqxpWHy1S7g5fgQKBhwlqFw76y9VXHA9pFR9slggM&usqp=CAU" alt="">
-                                        <p class="btn-text m-0">One Appartment</p>
-                                    </label>
-                                </div>
-                                <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-2">
-                                        <input type="radio" id="radio-2" name="bussiness_details" value="SOME" class="bc-2">
-                                        <img src="data:image/png;base64,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" alt="">
-                                        <p class="btn-text m-0">Hotel</p>
-                                    </label>
-                                </div>
-                                <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-3">
-                                        <input type="radio" id="radio-3" name="bussiness_details" value="NONE" class="bc-1">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXVA9sTnb9WazLL_eaqAQNlNQGXVqxpWHy1S7g5fgQKBhwlqFw76y9VXHA9pFR9slggM&usqp=CAU" alt="">
-                                        <p class="btn-text m-0">Homes</p>
-                                    </label>
-                                </div>
-                                <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-4">
-                                        <input type="radio" id="radio-4" name="bussiness_details" value="NONE" class="bc-1">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXVA9sTnb9WazLL_eaqAQNlNQGXVqxpWHy1S7g5fgQKBhwlqFw76y9VXHA9pFR9slggM&usqp=CAU" alt="">
-                                        <p class="btn-text m-0">Alternate Place</p>
-                                    </label>
+                                    @foreach($categories as $category)
+                                        <label class="duolingo-btn">
+                                            <input type="radio" id="radio-1" name="property_category_id" value="{{$category->id}}" class="bc-1">
+                                            <img src="{{asset('front/img/property-category/'.$category->image)}}" alt="">
+                                            <p class="btn-text m-0">{{$category->name}}</p>
+                                        </label>                                   
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -191,94 +167,80 @@
                         <button type="button" class="next-btn btn btn-primary ml-3 ">Next</button>
                     </div>
                 </div>
-                <!-- <div class="form-step">
-                    <div class="row cssanimation sequence fadeInBottom">
-                        <div class="col-lg-6 col-12 d-flex align-items-flex-start justify-content-center">
-                            <h2><strong>How many apartments are you listing?</strong></h2>
-                        </div>
-                        <div class="col-lg-6 col-12 col_height">
-
-                            <div>
-                                <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-1">
-                                        <input type="radio" id="radio-1" name="bussiness_details" value="NONE" class="bc-1">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXVA9sTnb9WazLL_eaqAQNlNQGXVqxpWHy1S7g5fgQKBhwlqFw76y9VXHA9pFR9slggM&usqp=CAU" alt="">
-                                        <p class="btn-text m-0">One Appartment</p>
-                                    </label>
-                                </div>
-                                <div class="btn-wrapper">
-                                    <label class=" duolingo-btn" for="radio-2">
-                                        <input type="radio" id="radio-2" name="bussiness_details" value="SOME" class="bc-2">
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqXVA9sTnb9WazLL_eaqAQNlNQGXVqxpWHy1S7g5fgQKBhwlqFw76y9VXHA9pFR9slggM&usqp=CAU" alt="">
-                                        <p class="btn-text m-0">Multiple Appartments</p>
-                                    </label>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-start justify-content-md-end button_group">
-                        <button type="button" class="back-btn btn btn-primary ml-3">Back</button>
-                        <button type="button" class="next-btn btn btn-primary ml-3 ">Next</button>
-                    </div>
-                </div> -->
                 <div class="form-step">
                     <div class="row cssanimation sequence fadeInBottom">
                         <div class="col-lg-6 col-12 d-flex align-items-flex-start  justify-content-center">
                             <h2><strong>Basic information</strong></h2>
-                            <!-- <p>Just your best guess here is all we need!</p> -->
                         </div>
                         <div class="col-lg-6 col-12 col_height">
                             <div class="row">
                                 <div class="form-group">
                                     <h5>What is the name of your property?</h5>
                                     <label for="propertyName" class="form-label">Property Name</label>
-                                    <input type="text" class="form-control" id="propertyName" placeholder="Enter your property name">
+                                    <input type="text" class="form-control" id="propertyName" name="title" placeholder="Enter your property name" value="{{ old('title') }}">
+                                </div>
+                                <div class="form-group">
+                                    <h5>Describe your property?</h5>
+                                    <label for="propertyName" class="form-label">Property Description</label>
+                                    <textarea class="form-control" id="description" name="description" placeholder="Enter your description">{{ old('description') }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <h5>Where is the property you're listing?</h5>
                                     <div>
                                         <p>We may send a letter to confirm the location of your property, so make sure that the address is correct – it’s difficult to make changes to it later.</p>
                                         <div class="form_group">
-                                            <label for="country" class="form-label">Country / Region</label>
-                                            <select name="country" id="country" class="form-control">
-                                                <option value="United States">United States</option>
-                                                <option value="Australia">Australia</option>
-                                                <option value="Canada">Canada</option>
-                                                <option value="India">India</option>
-                                                <option value="Japan">Japan</option>
-                                                <option value="France">France</option>
-                                                <option value="Germany">Germany</option>
-                                                <option value="Italy">Italy</option>
-                                                <option value="Spain">Spain</option>
+                                            <label for="country_id" class="form-label">Country / Region</label>
+                                            <select name="country_id" id="country_id" class="form-control select2">
+                                                <option value="" disabled selected>---Select Country---</option>
+                                                @foreach($countries as $country)
+                                                    <option value="{{$country->id}}" {{ old('country_id') == $country->id ? 'selected' : '' }}>{{$country->name}}</option>
+                                                @endforeach
                                             </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="state_id" class="form-label">State</label>
+                                            <select class="form-control select2" name="state_id" id="state_id">
+                                                <option value="" selected="" disabled="">--Select State--</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label for="city_id" class="form-label">City</label>
+                                                <select class="form-control select2" name="city_id" id="city_id">
+                                                    <option value="" selected disabled>--Select State--</option>
+                                                   
+                                                </select>
+                                            </div>
                                         </div>
                                         <div class="form_group">
                                             <label for="address" class="form-label">Find Your Address</label>
-                                            <input type="text" class="form-control" id="address" placeholder="Start typing your address">
+                                            <input type="text" class="form-control" id="address" name="address" placeholder="Start typing your address" value="{{ old('address') }}">
                                         </div>
+                                        <div id="result" style="border: 1px solid #ccc; max-height: 200px; overflow-y: auto;"></div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form_group">
                                                     <label for="postcode" class="form-label">Post Code</label>
-                                                    <input type="number" class="form-control" id="postcode" placeholder="Post Code">
+                                                    <input type="number" class="form-control" id="postcode" placeholder="Post Code" value="{{ old('postcode') }}">
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form_group">
-                                                    <label for="city" class="form-label">City</label>
-                                                    <input type="text" class="form-control" id="city" placeholder="City">
-                                                </div>
-                                            </div>
+                                           
                                         </div>
-                                        <div class="location_Iframe mt-3">
+                                        <div class="col-md-6">
+                                                <h5>Pin the location of your property on the map and post the link below.</h5>
+                                                <div class="form_group">
+                                                    <input type="text" class="form-control" name="google_map_link" id="postcode" placeholder="Pinned location link" value="{{ old('google_map_link') }}">
+                                                </div>
+                                            </div>
+                                        {{-- <div class="location_Iframe mt-3">
                                             <h5>Pin the location of your property on the map below</h5>
                                             <label for="location" class="form-label">Location</label>
                                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.713108180843!2d77.615549!3d28.538336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c624b9e027fde%3A0x97e98c63f02b7c50!2sIndian%20Institute%20of%20Management!5e0!3m2!1sen!2sin!4v1652861489813!5m2!1sen!2sin" width="600" height="450" style="border:0;width:100%" allowfullscreen="" loading="lazy"></iframe>
-                                        </div>
+                                            <button type="btn" class="btn btn-primary">Continue</button>
+                                        </div> --}}
                                     </div>
                                 </div>
-                                <button class="btn btn-primary">Continue</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -295,59 +257,58 @@
                         <div class="col-lg-6 col-12 col_height">
                             <div class="row">
                                 <div class="form-group">
-                                    {{-- <h5>Where can people sleep?</h5>
+                                    <h5>Where can people sleep?</h5>
                                     <div class="form_group">
-                                        <label for="living-room" class="form-label">Living Room</label>
-                                        <select name="living-room" id="living-room" class="form-control">
-                                            <option value="United States">United States</option>
-                                            <option value="Australia">Australia</option>
+                                        <label for="sleep-options" class="form-label">Sleeping Options</label>
+                                        <select name="sleep_options" id="sleep-options" class="form-control">
+                                            <option value="living-room" {{ old('sleep_options') == 'living-room' ? 'selected' : '' }}>Living Room</option>
+                                            <option value="single-room" {{ old('sleep_options') == 'single-room' ? 'selected' : '' }}>Single Room</option>
+                                            <option value="double-room" {{ old('sleep_options') == 'double-room' ? 'selected' : '' }}>Double Room</option>
                                         </select>
                                     </div>
-                                    <div class="form_group">
+                                    {{-- <div class="form_group">
                                         <label for="other-space" class="form-label">Other Spaces</label>
                                         <select name="other-space" id="other-space" class="form-control">
                                             <option value="United States">United States</option>
                                             <option value="Australia">Australia</option>
                                         </select>
                                     </div> --}}
-                                    <h5>Which beds are available in this room?</h5>
                                     <div class="form_group">
+                                        <h5>Which beds are available in this room?</h5>
+
                                         <label for="single-bed" class="form-label"></label>
-                                        <select name="single-bed" id="single-bed" class="form-control">
-                                            <option value="single-bed">Single Bed</option>
-                                            <option value="double-bed">Double Bed</option>
-                                            <option value="king-size">Large Bed (King Size)</option>
-                                            <option value="superKing-size">Extraa Large Double Bed (Super King Size)</option>
-                                            <option value="bunk-size">Bunk Bed</option>
-                                            <option value="Sofa-size">Sofa Bed</option>
-                                            <option value="futan-mat">Futan Mat</option>
+                                        <select name="bed_type" id="single-bed" class="form-control">
+                                            <option value="single-bed" {{ old('bed_type') == 'single-bed' ? 'selected' : '' }}>Single Bed</option>
+                                            <option value="double-bed" {{ old('bed_type') == 'double-bed' ? 'selected' : '' }}>Double Bed</option>
+                                            <option value="king-size" {{ old('bed_type') == 'king-size' ? 'selected' : '' }}>Large Bed (King Size)</option>
+                                            <option value="superKing-size" {{ old('bed_type') == 'superKing-size' ? 'selected' : '' }}>Extra Large Double Bed (Super King Size)</option>
+                                            <option value="bunk-size" {{ old('bed_type') == 'bunk-size' ? 'selected' : '' }}>Bunk Bed</option>
+                                            <option value="Sofa-size" {{ old('bed_type') == 'Sofa-size' ? 'selected' : '' }}>Sofa Bed</option>
+                                            <option value="futan-mat" {{ old('bed_type') == 'futan-mat' ? 'selected' : '' }}>Futan Mat</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="form_group">
                                         <label for="guest" class="form-label">How many guests can stay?</label>
-                                        <select name="guest" id="guest" class="form-control">
-                                            <option value="1">1</option>
-                                        </select>
+                                        <input type="number" name="passenger_capacity" class="form-control" value="{{ old('passenger_capacity') }}">
                                     </div>
                                     <div class="form_group">
                                         <label for="bathroom" class="form-label">How many bathrooms are there?</label>
-                                        <select name="bathroom" id="bathroom" class="form-control">
-                                            <option value="1">1</option>
-                                        </select>
+                                        <input type="number" name="bathrooms" class="form-control" value="{{ old('bathrooms') }}">
+
                                     </div>
                                     <div class="form_group">
-                                        <label for="children" class="form-label">Do you allow children?</label>
+                                        <label for="children_allowed" class="form-label">Do you allow children?</label>
                                         <div class="form-radio-group">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes">
+                                                <input class="form-check-input" type="radio" name="children_allowed" value="yes" id="yes" {{ old('children_allowed') == 'yes' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="yes">
                                                     Yes
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="no">
+                                                <input class="form-check-input" type="radio" name="children_allowed" value="no" id="no" {{ old('children_allowed') == 'no' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="no">
                                                     No
                                                 </label>
@@ -358,113 +319,18 @@
                                 <div class="form-group">
                                     <h5>What can guests use at your place?</h5>
                                     <div class="form_group">
-                                        <label for="genral" class="form-label">General</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="Ac">
-                                            <label class="form-check-label" for="Ac">
-                                                Air conditioning
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="heating">
-                                            <label class="form-check-label" for="heating">
-                                                Heating
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="wifi">
-                                            <label class="form-check-label" for="wifi">
-                                                Free Wifi
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="EVC">
-                                            <label class="form-check-label" for="EVC">
-                                                Electric vehicle charging station
-                                            </label>
-                                        </div>
+                                        <label for="general" class="form-label">General Facilities</label>
+                                        @foreach($facilities as $facility)
+                                            <div class="form-check">
+                                                <!-- Ensure each checkbox has a unique ID -->
+                                                <input class="form-check-input" type="checkbox" name="facilities[]" value="{{ $facility->id }}" id="facility" {{ in_array($facility->id, old('facilities', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="facility-{{ $facility->id }}">
+                                                    {{ $facility->name }}
+                                                </label>
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="form_group">
-                                        <label for="cookie" class="form-label">Cooking and cleaning</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="kitchen">
-                                            <label class="form-check-label" for="kitchen">
-                                                Kitchen
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="Kitchenette">
-                                            <label class="form-check-label" for="Kitchenette">
-                                                Kitchenette
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="washingmachine">
-                                            <label class="form-check-label" for="washingmachine">
-                                                Washing machine
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form_group">
-                                        <label for="entertaiment" class="form-label">Entertainment</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="tv">
-                                            <label class="form-check-label" for="tv">
-                                                Flat-screen TV
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="Swimming pool">
-                                            <label class="form-check-label" for="Swimming pool">
-                                                Swimming pool
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="hot-tub">
-                                            <label class="form-check-label" for="hot-tub">
-                                                Hot tub
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="mini-bar">
-                                            <label class="form-check-label" for="mini-bar">
-                                                Minibar
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="sauna">
-                                            <label class="form-check-label" for="sauna">
-                                                Sauna
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="form_group">
-                                        <label for="entertaiment" class="form-label">Outside and view</label>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="balcony">
-                                            <label class="form-check-label" for="balcony">
-                                                Balcony
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="garden-view">
-                                            <label class="form-check-label" for="garden-view">
-                                                Garden view
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="Terrace">
-                                            <label class="form-check-label" for="Terrace">
-                                                Terrace
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="View">
-                                            <label class="form-check-label" for="View">
-                                                View
-                                            </label>
-                                        </div>
-                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -484,13 +350,13 @@
                                 <div class="form_group">
                                     <label for="genral" class="form-label">Do you serve guests breakfast?</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes">
+                                        <input class="form-check-input" type="radio" name="breakfast" value="yes" id="yes" {{ old('breakfast') == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="no">
+                                        <input class="form-check-input" type="radio" name="breakfast" value="no" id="no" {{ old('breakfast') == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="no">
                                             No
                                         </label>
@@ -499,13 +365,13 @@
                                 <div class="form_group">
                                     <label for="genral" class="form-label">Is parking available to guests?</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="yes">
+                                        <input class="form-check-input" type="radio" name="parking" value="yes" id="yes" {{ old('parking') == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="yes">
                                             Yes
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="no">
+                                        <input class="form-check-input" type="radio" name="parking" value="no" id="no" {{ old('parking') == 'no' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="no">
                                             No
                                         </label>
@@ -515,20 +381,21 @@
                             <div class="form-group">
                                 <h5>What languages do you or your staff speak?</h5>
                                 <div class="form_group">
-                                    <label for="genral" class="form-label">Select languages</label>
+                                    <label for="general" class="form-label">Select languages</label>
+                                    
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="English">
+                                        <input class="form-check-input" type="checkbox" name="staff_language[]" value="english" id="English" {{ in_array('english', old('staff_language', [])) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="English">
                                             English
                                         </label>
                                     </div>
+                                    
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="Hindi">
+                                        <input class="form-check-input" type="checkbox" name="staff_language[]" value="hindi" id="Hindi" {{ in_array('hindi', old('staff_language', [])) ? 'checked' : '' }}>
                                         <label class="form-check-label" for="Hindi">
                                             Hindi
                                         </label>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="form-group">
@@ -536,51 +403,37 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="genral" class="form-label">Check in From</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>15:00</option>
-                                            <option value="1">22:00</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="genral" class="form-label">Check in Until</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>18:00</option>
-                                            <option value="1">22:00</option>
-                                        </select>
+                                        <input type="time" class="form-control" id="checkInFrom" name="check_in_time" value="{{ old('check_in_time') }}">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="genral" class="form-label">Check Out From</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>15:00</option>
-                                            <option value="1">22:00</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="genral" class="form-label">Check Out Until</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>18:00</option>
-                                            <option value="1">22:00</option>
-                                        </select>
+                                        <input type="time" class="form-control" id="checkOutFrom" name="check_out_time" value="{{ old('check_out_time') }}">
                                     </div>
                                 </div>
                                 <div class="form-checkboxes mt-3">
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="smoking">
+                                        <!-- Smoking checkbox with proper name attribute -->
+                                        <input class="form-check-input" type="checkbox" name="smoking" value="yes" role="switch" id="smoking" {{ old('smoking') == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="smoking">Smoking allowed</label>
                                     </div>
+                                    
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="pets">
+                                        <!-- Pets checkbox with proper name attribute -->
+                                        <input class="form-check-input" type="checkbox" name="pets" value="yes" role="switch" id="pets" {{ old('pets') == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="pets">Pets allowed</label>
                                     </div>
+                                    
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch" id="parties">
+                                        <!-- Parties checkbox with proper name attribute -->
+                                        <input class="form-check-input" type="checkbox" name="parties" value="yes" role="switch" id="parties" {{ old('parties') == 'yes' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="parties">Parties/events allowed</label>
                                     </div>
                                 </div>
+                                
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <h5>Host profile</h5>
                                 <label for="genral" class="form-label">Help your listing stand out by telling potential guests a bit more about yourself, your property and your neighbourhood. This information will be shown on your property page.</label>
                                 <div class="form-check">
@@ -607,7 +460,7 @@
                                         None of the above/I'll add these later
                                     </label>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="d-flex justify-content-end my-4">
@@ -631,14 +484,14 @@
                                     <div class="upload_img">
                                         <i class="fa-solid fa-camera-retro"></i>
                                         Upload Photos
-                                        <input type="file" id="photoFileInput" accept="image/jpeg, image/png" multiple="" name="photoUploadBlock">
-                                    </div>
-                                    <p>jpg/jpeg or png, maximum 47MB each</p>
+                                        <input type="file" id="photoFileInput" name="image[]" multiple >                                   
+                                     </div>
+                                    <p>jpg/jpeg or png</p>
                                 </div>
                                 <div class="divider-line"></div>
                                 <div class="preview-images" id="previewImages"></div>
                                 <p id="error-message" class="mb-3" style="color: red; display: none;">Please upload at least 5 images.</p>
-                                <button class="btn btn-primary">Continue</button>
+                                {{-- <button type="button" class="btn btn-primary">Continue</button> --}}
                             </div>
                         </div>
                     </div>
@@ -647,97 +500,6 @@
                         <button type="button" class="next-btn btn btn-primary ml-3">Next</button>
                     </div>
                 </div>
-                <!-- <div class="form-step ">
-                    <div class="row cssanimation sequence fadeInBottom">
-                        <div class="col-lg-6 col-12 d-flex align-items-flex-start  justify-content-center">
-                            <h2><strong>How you receive bookings?</strong></h2>
-                        </div>
-
-                        <div class="col-lg-6 col-12 col_height">
-
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="card-title">We're here to ensure you can receive booking safely</div>
-                                            <ul>
-                                                <li>✓ Set house rules guest must agree to before they stay </li>
-                                                <li>✓ Request damage deposits for extra security</li>
-                                                <li>✓ Report guest misconduct if something goes wrong</li>
-                                                <li>✓ Receive protection against liability claims from guests and neighbours up to US$1,000,000 for every reservation</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="card mt-30">
-                                        <div class="card-body">
-                                            <h6>How can guests book your apartment?</h6>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    All guests can book instantly Recommended
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                <label class="form-check-label" for="flexRadioDefault2">
-                                                    All guests will need to request to book
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h3 class="mb-20 mt-20">Payments</h3>
-                                        <div class="card mt-30">
-                                            <div class="card-body">
-                                                <h4>How can your guests pay for their stay?</h4>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                                    <label class="form-check-label" for="flexRadioDefault1">
-                                                        Online, when they make a reservation. Clockwise will facilitate your guests’s payments with the Payments by Clockwise service.
-                                                    </label>
-                                                </div>
-                                                <ol>
-                                                    <li><i class="fa-solid fa-ban"></i> Fewer cancellations</li>
-                                                    <li><i class="fa-solid fa-shield"></i> Fraud and card protection</li>
-                                                    <li><i class="fa-regular fa-handshake"></i> More payment options for your guests</li>
-                                                </ol>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                                    <label class="form-check-label" for="flexRadioDefault2">
-                                                        By credit card, at my property
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mt-30 bg-light">
-                                            <div class="card-body">
-                                                <h6 class="mb-3">Are you sure you want to require your guests to request to book?</h6>
-                                                <ol class="pl-0">
-                                                    <li><b>Your guest pays</b> through Clockwise with more options like PayPal, WeChat Pay and AliPay.</li>
-                                                    <li><b>We facilitate your guest’s payment.</b> You don’t have to deal with fraud, chargebacks or invalid cards.</li>
-                                                    <li><b>Clockwise sends payouts to you.</b> You'll receive a bank transfer by the 15th of each month that covers all bookings with a check-out in the previous month.</li>
-                                                    <li></li>
-                                                </ol>
-                                                <h6 class="mb-3">The payment charge</h6>
-                                                <p>You cover the 2.3% payment charge. Of course, no fees are collected when you waive a fee to offer guests free cancellation.</p>
-                                                <p>The payment charge is based on payment processing fees as well as the average chargeback and fraud risk in your region, and is automatically deducted from each of your payouts.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-12"></div>
-                            </div>
-
-                            
-                            <input type="hidden" name="business_kind_text" value="">
-                        </div>
-                    </div>
-                    <div class="d-flex justif-content-start justify-content-md-end button_group">
-                        <button type="button" class="back-btn btn btn-primary ml-3">Back</button>
-                        <button type="button" class="next-btn btn btn-primary ml-3">Next</button>
-                    </div>
-                </div> -->
                 <div class="form-step">
                     <div class="row cssanimation sequence fadeInBottom">
                         <div class="col-lg-6 col-12 d-flex align-items-flex-start  justify-content-center">
@@ -757,21 +519,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card mt-30 ">
+                                <div class="card mt-30">
                                     <div class="card-body">
                                         <h6 class="mb-3">How much do you want to charge per night?</h6>
                                         <div class="form-group">
                                             <label for="price" class="form-label">Price guests pay</label>
-                                            <input type="number" class="form-control mb-2" id="price" placeholder="Enter your price per night">
+                                            <input type="number" class="form-control mb-2" id="price" name="price" placeholder="Enter your price per night" value="{{ old('price') }}">
                                             <span>Including taxes, commission and charges</span>
                                         </div>
                                         <ol class="" style="list-style: none;">
-                                            <p>15.00%Booking.com commission</p>
+                                            <p>15.00% Clockwisehotel.com commission</p>
                                             <li><b><i class="fa fa-check me-2" aria-hidden="true"></i> 24/7 help in your language</b></li>
                                             <li><b><i class="fa fa-check me-2" aria-hidden="true"></i> Save time with automatically confirmed bookings.</b></li>
                                             <li><b><i class="fa fa-check me-2" aria-hidden="true"></i> We promote your place on Google.</b></li>
                                         </ol>
-                                        <p><strong>INR850.00</strong> Your earnings (including taxes)</p>
+                                        <p><strong>INR <span id="earnings">0.00</span></strong> Your earnings (including taxes)</p>
                                     </div>
                                 </div>
                                 <!-- <div class="card mt-30 ">
@@ -815,134 +577,6 @@
                                         </ol>
                                     </div>
                                 </div>
-                                <!-- <div class="card mt-30 ">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-baseline gap-3">
-                                            <div class="d-flex flex-column">
-                                                <h5 class="mb-3">Price per group size <i class="fa fa-exclamation-circle ms-2" aria-hidden="true"></i></h5>
-                                                <span class="text-danger">Set lower prices for smaller groups of guests to increase your chances of getting bookings</span>
-                                            </div>
-                                            <div class="btn btn-outline-success">Edit</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-4">
-                                                <div class="group_size mt-3">
-                                                    <h5>Occupancy</h5>
-                                                    <ul style="list-style: none; padding: 0;">
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>10</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>9</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>8</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>7</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>6</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>5</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>4</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>3</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>2</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="d-flex gap-2 align-items-center">
-                                                                <i class="fa-regular fa-user"></i>
-                                                                ✕
-                                                                <span>1</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-4">
-                                                <div class="group_size mt-3">
-                                                    <h5>Guests pay</h5>
-                                                    <ul style="list-style: none; padding: 0;">
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                        <li>
-                                                            <span>INR 758,563.00</span>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-4"></div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -974,33 +608,47 @@
                                                 <input type="radio" class="form-check-input" name="register_gst" value="no" id="register_gst_no">
                                                 <label for="register_gst_no" class="form-label mb-0">No</label>
                                             </div>
-                                        </div>
+                                        </div> 
                                         <div class="form-group">
-                                            <label for="gst" class="form-label">GST</label>
-                                            <input type="text" class="form-control mb-2" id="gst" placeholder="Enter your GST">
+                                            <label for="gst" class="form-label">GST(Optional)</label>
+                                            <input type="text" class="form-control mb-2" name="gst_number" id="gst" placeholder="Enter your GST" value="{{ old('gst_number') }}">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="pan" class="form-label">PAN</label>
-                                            <input type="text" class="form-control mb-2" id="pan" placeholder="Enter your PAN">
+                                        <!-- <div class="form-group">
+                                            <label for="pan" class="form-label">PAN <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control mb-2" name="pan_number" value="{{ old('pan_number', Auth::guard('vendor')->user()->pan_card) }}" id="pan" placeholder="Enter your PAN">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="adhar" class="form-label">Please enter your 12-digit Aadhaar number</label>
-                                            <input type="text" class="form-control mb-2" id="adhar" placeholder="Enter your Adhar Number">
-                                        </div>
-                                        <div class="row">
+                                            <input type="text" class="form-control mb-2" name="aadhar_number" value="{{ old('aadhar_number', Auth::guard('vendor')->user()->aadhar_number) }}" id="adhar" placeholder="Enter your Adhar Number">
+                                        </div> -->
+                                        <!-- <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="adhar" class="form-label">Upload Aadhar Front Picture </label>
-                                                    <input type="file" class=" mb-2" id="adhar_front">
+                                                    <input type="file" class=" mb-2" name="adhar_front_image" id="adhar_front_image">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="adhar" class="form-label">Upload Aadhar Back Picture </label>
-                                                    <input type="file" class=" mb-2" id="adhar_back">
+                                                    <input type="file" name="adhar_back_image" class="mb-2" id="adhar_back_image">
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="adhar" class="form-label">Upload PAN Front Picture </label>
+                                                    <input type="file" class="mb-2" name="pan_front_image" id="pan_front_image">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="adhar" class="form-label">Upload PAN Back Picture </label>
+                                                    <input type="file" class="mb-2" name="pan_back_image" id="pan_back_image">
+                                                </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -1009,7 +657,7 @@
                     </div>
                     <div class="d-flex justif-content-start justify-content-md-end button_group">
                         <button type="button" class="back-btn btn btn-primary ml-3">Back</button>
-                        <button type="button" class="next-btn btn btn-primary ml-3">Next</button>
+                        <button type="submit" class="next-btn btn btn-primary ml-3">Submit</button>
                     </div>
                 </div>
 
@@ -1043,6 +691,96 @@
 @endsection
 
 @push('js')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#result').hide();  // Initially hide the result container
+        var timeout;
+
+        // Handle input in the location field and trigger the API call after a short delay
+        $('#address').on('input', function () {
+            clearTimeout(timeout); // Clear any previous timeout to avoid multiple API calls
+            var cityName = $(this).val().trim(); // Trim whitespace
+            console.log("City Name: " + cityName);
+
+            if (cityName.length >= 1) {
+                timeout = setTimeout(function () {
+                    var apiKey = 'AIzaSyDuMG2WaY4Vwi0iM3XqPdUrNAcvjHtR8wE'; // Your actual API key
+                    var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(cityName)}&key=${apiKey}&types=establishment|geocode|address`;
+
+                    console.log('Making API Request:', url);
+
+                    // API Request
+                    $.get(url, function (data) {
+                        console.log('API Response:', data);
+
+                        if (data.status === 'OK') {
+                            var results = data.results;
+                            var resultHtml = '';
+
+                            if (results.length === 0) {
+                                $('#result').html('<p>No results found</p>');
+                                $('#result').show();
+                                return;
+                            }
+
+                            // Display formatted addresses as clickable options
+                            results.forEach(function (result) {
+                                var addressComponents = result.address_components;
+                                var shortName = addressComponents.find(component => component.types.includes("locality"))?.short_name || "";
+
+                                resultHtml += `
+                                    <div class="result-item" data-address="${result.formatted_address}" data-shortname="${shortName}">
+                                        ${result.formatted_address}
+                                    </div>
+                                `;
+                            });
+
+                            $('#result').html(resultHtml); // Update the result container
+                            $('#result').show(); // Show the result container when there are results
+                        } else if (data.status === 'ZERO_RESULTS') {
+                            $('#result').html('<p>No results found</p>');
+                            $('#result').show(); // Show even if no results are found
+                        } else {
+                            $('#result').html(`<p>Error: ${data.status}</p>`);
+                            $('#result').show(); // Show error message if API returns an error
+                        }
+                    }).fail(function (error) {
+                        console.error('Error fetching data from API:', error);  // Log the error
+                        $('#result').html('<p>Error fetching data from API.</p>');
+                        $('#result').show(); // Show error message if request fails
+                    });
+                }, 300); // Delay to avoid multiple API calls
+            } else {
+                $('#result').html(''); // Clear results if input is empty
+                $('#result').hide(); // Hide results when input is cleared
+            }
+        });
+
+        // Handle click event on result items (options)
+        $(document).on('click', '.result-item', function () {
+            var selectedAddress = $(this).data('address'); // Get the full address
+            $('#address').val(selectedAddress); // Set the input value to the selected address
+            $('#result').html(''); // Clear the results
+            $('#result').hide(); // Hide the result container after selection
+        });
+    
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#price').on('input', function() {
+            var price = parseFloat($(this).val());
+            if (!isNaN(price) && price > 0) {
+                var commission = 0.15; // 15% commission
+                var earnings = price - (price * commission);
+                $('#earnings').text(earnings.toFixed(2)); // Display the earnings after commission
+            } else {
+                $('#earnings').text('0.00'); // Set to 0 if invalid price is entered
+            }
+        });
+    });
+</script>
 
 <script>
     const fillingAmntCard = document.getElementById('fillingAmntCard');
@@ -1169,21 +907,18 @@
 
 <script>
     /* // Handle button selection like radio buttons
-                                                   // Handle button selection like radio buttons within a specific .form-step */
+    // Handle button selection like radio buttons within a specific .form-step */
     document.querySelectorAll('.form-step').forEach(formStep => {
         const buttons = formStep.querySelectorAll('[id^="btn-"]');
         buttons.forEach(button => {
             button.addEventListener("click", () => {
                 const index = button.id.split('-')[1];
-
                 /* // Select the corresponding radio button and check it */
                 const radioInput = formStep.querySelector(`#radio-${index}`);
                 if (radioInput) {
                     radioInput.checked = true; // This checks the radio button
                 }
-
                 /* // Apply styles to the clicked button */
-
                 // button.style.borderColor = "#33f28b";
                 // button.style.backgroundColor = "#33f28b";
                 // formStep.querySelector(`.bc-${index}`).style.borderColor = "#33f28b";
@@ -1194,7 +929,6 @@
                 formStep.querySelector(`.bc-${index}`).style.borderColor = "#E22200";
                 formStep.querySelector(`.bc-${index}`).style.color = "#fff";
                 formStep.querySelector(`#bt-${index}`).style.color = "#fff";
-
                 /* // Reset styles for other buttons within this form-step */
                 buttons.forEach(btn => {
                     if (btn.id !== button.id) {
@@ -1212,7 +946,6 @@
             });
         });
     });
-
     /* // Support keyboard shortcuts for button selection (1, 2, 3 keys) in the current form-step */
     document.addEventListener("keypress", (event) => {
         if (event.key >= "1" && event.key <= "3") {
@@ -1224,8 +957,6 @@
             });
         }
     });
-
-
     /* // Support keyboard shortcuts for button selection (1, 2, 3 keys) */
     document.addEventListener("keypress", (event) => {
         if (event.key >= "1" && event.key <= "3") {
@@ -1233,29 +964,23 @@
         }
     });
 </script>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const alStateFilingFee = 236;
-
         function printPackageData(radio) {
             const selectedPackage = JSON.parse(radio.value);
-
             document.getElementById('orderSummaryTitle').textContent = `Order Summary - ${selectedPackage.package_name}`;
             document.getElementById('summaryAmount').textContent = `$${selectedPackage.price}`;
             document.getElementById('entityType').textContent = selectedPackage.package_name;
             document.getElementById('packageName').textContent = `${selectedPackage.package_name} Package`;
             document.getElementById('packagePrice').textContent = `$${selectedPackage.price}`;
             document.getElementById('filingFee').textContent = `$${alStateFilingFee}`;
-
             // Get the selected filing time fee
             const filingTimeFee = parseInt(document.querySelector('input[name="filingTime"]:checked')?.value || 0);
-
             // Calculate total
             const total = selectedPackage.price + alStateFilingFee + filingTimeFee;
             document.getElementById('totalAmount').textContent = `$${total}`;
         }
-
         // Listen for changes to the package selection
         const packageRadios = document.querySelectorAll('input[name="whole_package"]');
         packageRadios.forEach(radio => {
@@ -1263,7 +988,6 @@
                 printPackageData(this);
             });
         });
-
         // Listen for changes to the filing time selection
         const filingTimeRadios = document.querySelectorAll('input[name="filingTime"]');
         filingTimeRadios.forEach(radio => {
@@ -1287,7 +1011,6 @@
        `;
         $('.appendDiv').html(htmlDiv);
         // alert(htmlDiv);
-
     }
 </script>
 <script>
@@ -1298,7 +1021,6 @@
         const businessNameInput = document.getElementById('bussiness_name');
         const stateSelect = document.getElementById('formation_state');
         const nextButton = document.querySelector('.nxt-btn');
-
         // Function to check if inputs are valid
         function checkInputs() {
             // If either input is empty, disable the Next button
@@ -1310,7 +1032,6 @@
                 nextButton.classList.remove('disabled');
             }
         }
-
         // Event listeners for inputs
         businessNameInput.addEventListener('input', checkInputs);
         stateSelect.addEventListener('change', checkInputs);
@@ -1319,7 +1040,6 @@
         checkInputs();
     });
 </script>
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const toggleAnchor = document.getElementById("toggleAnchor");
@@ -1336,7 +1056,6 @@
         });
     });
 </script>
-
 <!-- 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1368,25 +1087,6 @@
         });
     });
 </script> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
     $(document).ready(function() {
         $('#highlights-field').on('change', function() {
@@ -1400,9 +1100,6 @@
         });
     });
 </script>
-
-
-
 <script>
     $(document).ready(function() {
         $("#country_id").on('change', function() {
@@ -1434,7 +1131,6 @@
         });
     });
 </script>
-
 <script>
     $("#state_id").on('change', function() {
         var stateId = $(this).val();
