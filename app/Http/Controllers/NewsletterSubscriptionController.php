@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsletterSubscriptionController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // Fetch all subscriptions
         $subscriptions = Newsletter::orderBy('created_at', 'desc')->paginate(10);
         //dd($subscriptions);
-
+        if ($request->wantsJson()) {
+            return response()->json($subscriptions);
+        }
         // Return JSON response
         // return response()->json($subscriptions);
         return view('backend.subscribe.index', compact('subscriptions'));
