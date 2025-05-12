@@ -15,6 +15,8 @@ use App\Models\AboutUsModel;
 use App\Models\Comment;
 use App\Models\PropertyWeekendDeal;
 use App\Models\Home;
+use App\Models\Banner;
+
 use App\Models\Newsletter;
 
 use App\Models\HomepageTrendingDestination;
@@ -59,6 +61,7 @@ class HomeController extends Controller
             )->groupBy('city_id')->get();
 
         $destinationData = HomepageTrendingDestination::all();
+        $banner = Banner::first();
 
         if ($request->ajax()) {
             return response()->json([
@@ -67,7 +70,7 @@ class HomeController extends Controller
                 "message" => "Properties retrieved successfully."
             ]);
         } else {
-            return view('front.index', compact('data', 'city_wise_all_property', 'all_weekend_property_book', 'filter_data', 'check_in', 'check_out', 'adults', 'children', 'rooms', 'destinationData'));
+            return view('front.index', compact('data', 'city_wise_all_property', 'all_weekend_property_book', 'filter_data', 'check_in', 'check_out', 'adults', 'children', 'rooms', 'destinationData', 'banner'));
         }
     }
 
@@ -566,4 +569,5 @@ class HomeController extends Controller
     
         return redirect()->back()->with('success', 'Subscribed successfully!');
     }
+
 }

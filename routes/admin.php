@@ -93,6 +93,8 @@ Route::prefix('admin/')->name('admin.')->middleware('admin')->group(function(){
             Route::post('store-footer', 'store_footer')->name('store-footer');
             Route::get('home', 'home')->name('home');
             Route::post('store-home', 'store_home')->name('store-home');
+            Route::post('banner-store', 'bannerStore')->name('banner-store');
+
 
         });
 

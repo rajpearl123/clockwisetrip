@@ -974,15 +974,18 @@ alt="image">
         <div class="row">
             <div class="col-md-6 col-12 mb-20">
                 <div class="mission-content">
-                    <h1 class="rq-title">Clock-Wise Room
+                    <h1 class="rq-title">{{ $banner->title }}
                         <i class="rq-line"></i>
                     </h1>
-                    <p class="mission-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    </p>
+                    <p class="mission-text">{{ $banner->description }} </p>
                 </div>
             </div>
             <div class="col-md-6 col-12 mb-20">
-                <img src="front/img/hotels/ClockWiseHotel.jpg" class="ml-sm-50">
+                @if($banner->image)
+                    <img src="{{ asset($banner->image) }}" alt="Banner Image" class="ml-sm-50 img-fluid">
+                @else
+                    <img src="{{ asset('front/img/hotels/ClockWiseHotel.jpg') }}" alt="Default Image" class="ml-sm-50 img-fluid">
+                @endif
             </div>
         </div>
     </div>

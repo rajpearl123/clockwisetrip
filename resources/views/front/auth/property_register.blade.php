@@ -35,7 +35,7 @@
     }
 </style>
 
-    <title>clockwisehotel.com</title>
+    <title>clockwisetrip.com</title>
 
 </head>
 
@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="preloader__title">clockwisehotel.com</div>
+        <div class="preloader__title">clockwisetrip.com</div>
     </div>
 
     <main>
@@ -239,7 +239,7 @@
                             </div>
 
                             <div class="row y-gap-20 pt-30">
-                                <div class="col-12">
+                                {{-- <div class="col-12">
                                     <div class="text-center">or sign in with</div>
 
                                     <button class="button col-12 -outline-blue-1 text-blue-1 py-15 rounded-8 mt-10">
@@ -256,7 +256,7 @@
                                         <i class="icon-apple text-15 mr-10"></i>
                                         Apple
                                     </button>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-12">
                                     <div class="text-center px-30">By signing in, I agree to GoTrip Terms of Use and Privacy Policy.</div>
@@ -290,11 +290,11 @@
                             <h5 class="text-16 fw-500 mb-30">Company</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">About Us</a>
-                                <a href="#">Careers</a>
+                                {{-- <a href="#">Careers</a> --}}
                                 <a href="#">Blog</a>
-                                <a href="#">Press</a>
+                                {{-- <a href="#">Press</a>
                                 <a href="#">Gift Cards</a>
-                                <a href="#">Magazine</a>
+                                <a href="#">Magazine</a> --}}
                             </div>
                         </div>
 
@@ -302,14 +302,14 @@
                             <h5 class="text-16 fw-500 mb-30">Support</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">Contact</a>
-                                <a href="#">Legal Notice</a>
+                                {{-- <a href="#">Legal Notice</a> --}}
                                 <a href="#">Privacy Policy</a>
                                 <a href="#">Terms and Conditions</a>
-                                <a href="#">Sitemap</a>
+                                {{-- <a href="#">Sitemap</a> --}}
                             </div>
                         </div>
 
-                        <div class="col-xl-2 col-lg-4 col-sm-6">
+                        {{-- <div class="col-xl-2 col-lg-4 col-sm-6">
                             <h5 class="text-16 fw-500 mb-30">Other Services</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">Car hire</a>
@@ -320,7 +320,7 @@
                                 <a href="#">Holiday Rental</a>
                                 <a href="#">Travel Agents</a>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-xl-2 col-lg-4 col-sm-6">
                             <h5 class="text-16 fw-500 mb-30">Mobile</h5>
@@ -358,7 +358,7 @@
                                     <div class="d-flex x-gap-15">
                                         <a href="#">Privacy</a>
                                         <a href="#">Terms</a>
-                                        <a href="#">Site Map</a>
+                                        {{-- <a href="#">Site Map</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -373,10 +373,10 @@
                                             <span class="underline">English (US)</span>
                                         </button>
 
-                                        <button class="d-flex items-center text-14 fw-500 text-dark-1">
+                                        {{-- <button class="d-flex items-center text-14 fw-500 text-dark-1">
                                             <i class="icon-usd text-16 mr-10"></i>
                                             <span class="underline">USD</span>
-                                        </button>
+                                        </button> --}}
                                     </div>
                                 </div>
 

@@ -12,12 +12,12 @@
       <div class="col-auto">
         <div class="d-flex items-center">
           <div class="row x-gap-20 items-center lg:d-none">
-            <div class="col-auto">  
-              <button class="d-flex items-center text-16 text-white" data-x-click="currency">
-                <span class="js-currencyMenu-mainTitle">INR</span>
+            <!--<div class="col-auto">  -->
+            <!--  <button class="d-flex items-center text-16 text-white" data-x-click="currency">-->
+            <!--    <span class="js-currencyMenu-mainTitle">INR</span>-->
                 <!-- <i class="icon-chevron-sm-down text-7 ml-10"></i> -->
-              </button>
-            </div>
+            <!--  </button>-->
+            <!--</div>-->
             <div class="col-auto">
               <div class="w-1 h-20 bg-white-20"></div>
             </div>

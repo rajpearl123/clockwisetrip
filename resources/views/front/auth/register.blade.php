@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{ asset('front/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('front/css/style.css') }}">
 
-    <title>clockwisehotel.com</title>
+    <title>clockwisetrip.com</title>
 
     <style>
         .position-relative {
@@ -42,7 +42,8 @@
     <div class="preloader js-preloader">
         <div class="preloader__wrap">
             <div class="preloader__icon">
-                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_41)">
                         <path
                             d="M32.9675 13.9422C32.9675 6.25436 26.7129 0 19.0251 0C11.3372 0 5.08289 6.25436 5.08289 13.9422C5.08289 17.1322 7.32025 21.6568 11.7327 27.3906C13.0538 29.1071 14.3656 30.6662 15.4621 31.9166V35.8212C15.4621 36.4279 15.9539 36.92 16.561 36.92H21.4895C22.0965 36.92 22.5883 36.4279 22.5883 35.8212V31.9166C23.6849 30.6662 24.9966 29.1071 26.3177 27.3906C30.7302 21.6568 32.9675 17.1322 32.9675 13.9422V13.9422ZM30.7699 13.9422C30.7699 16.9956 27.9286 21.6204 24.8175 25.7245H23.4375C25.1039 20.7174 25.9484 16.7575 25.9484 13.9422C25.9484 10.3587 25.3079 6.97207 24.1445 4.40684C23.9229 3.91841 23.6857 3.46886 23.4347 3.05761C27.732 4.80457 30.7699 9.02494 30.7699 13.9422ZM20.3906 34.7224H17.6598V32.5991H20.3906V34.7224ZM21.0007 30.4014H17.0587C16.4167 29.6679 15.7024 28.8305 14.9602 27.9224H16.1398C16.1429 27.9224 16.146 27.9227 16.1489 27.9227C16.152 27.9227 23.0902 27.9224 23.0902 27.9224C22.3725 28.8049 21.6658 29.6398 21.0007 30.4014ZM19.0251 2.19765C20.1084 2.19765 21.2447 3.33365 22.1429 5.3144C23.1798 7.60078 23.7508 10.6649 23.7508 13.9422C23.7508 16.6099 22.8415 20.6748 21.1185 25.7245H16.9322C15.2086 20.6743 14.2994 16.6108 14.2994 13.9422C14.2994 10.6649 14.8706 7.60078 15.9075 5.3144C16.8057 3.33365 17.942 2.19765 19.0251 2.19765V2.19765ZM7.28053 13.9422C7.28053 9.02494 10.3184 4.80457 14.6157 3.05761C14.3647 3.46886 14.1273 3.91841 13.9059 4.40684C12.7425 6.97207 12.102 10.3587 12.102 13.9422C12.102 16.7584 12.9462 20.7176 14.6126 25.7245H13.2259C9.33565 20.6126 7.28053 16.5429 7.28053 13.9422Z"
@@ -58,7 +59,7 @@
             </div>
         </div>
 
-        <div class="preloader__title">clockwisehotel.com</div>
+        <div class="preloader__title">clockwisetrip.com</div>
     </div>
 
     <main>
@@ -68,9 +69,10 @@
                 <div class="row justify-between items-center">
                     <div class="col-auto">
                         <div class="d-flex items-center">
-                            <a href="{{ url('/') }}" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
-                                <img src="{{ asset('front/img/logo/chockwisehotel_logo.png') }}" alt="logo icon">
-                                <img src="{{ asset('front/img/logo/chockwisehotel_logo.png') }}" alt="logo icon">
+                            <a href="{{ url('/') }}" class="header-logo mr-20" data-x="header-logo"
+                                data-x-toggle="is-logo-dark">
+                                <img src="{{ asset('front/img/logo/logo_3.png') }}" alt="logo icon">
+                                <img src="{{ asset('front/img/logo/logo_3.png') }}" alt="logo icon">
                             </a>
                         </div>
                     </div>
@@ -78,49 +80,59 @@
                         <div class="d-flex items-center">
                             <div class="row x-gap-20 items-center md:d-none">
                                 <div class="col-auto">
-                                    <button class="d-flex items-center text-16 text-white" data-x-click="currency">
+                                    {{-- <button class="d-flex items-center text-16 text-white" data-x-click="currency">
                                         <span class="js-currencyMenu-mainTitle">INR</span>
                                         <i class="icon-chevron-sm-down text-7 ml-10"></i>
-                                    </button>
+                                    </button> --}}
                                 </div>
                                 <div class="col-auto">
                                     <div class="w-1 h-20 bg-white-20"></div>
                                 </div>
                                 <div class="col-auto">
                                     <button class="d-flex items-center text-16 text-white" data-x-click="lang">
-                                        <img src="{{ asset('front/img/general/india.png') }}" alt="image" class="rounded-full mr-10" height="20" width="20">
+                                        <img src="{{ asset('front/img/general/india.png') }}" alt="image"
+                                            class="rounded-full mr-10" height="20" width="20">
                                         <span class="js-language-mainTitle ">India</span>
                                         <i class="icon-chevron-sm-down text-7 ml-15"></i>
                                     </button>
                                 </div>
                             </div>
                             <div class="d-flex items-center ml-20 is-menu-opened-hide md:d-none">
-                                <a href="{{ url('get-property') }}" class="button px-20 fw-400 text-16 -white bg-white h-50 text-dark-1">List Your Property</a>
+                                <a href="{{ url('get-property') }}"
+                                    class="button px-20 fw-400 text-16 -white bg-white h-50 text-dark-1">List Your
+                                    Property</a>
                                 @if (Auth::check())
-                                <di class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">
-                                    <div class="user-dropdown">
-                                        <div class="user-icon">
-                                            <i class="fas fa-user-circle " style="font-size: 25px;"></i> <!-- Correct Font Awesome user icon -->
+                                    <di
+                                        class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">
+                                        <div class="user-dropdown">
+                                            <div class="user-icon">
+                                                <i class="fas fa-user-circle " style="font-size: 25px;"></i>
+                                                <!-- Correct Font Awesome user icon -->
+                                            </div>
+                                            <div class="user-name">
+                                                {{ Auth::user()->name }}
+                                                <span class="dropdown-arrow">&#9662;</span> <!-- Dropdown arrow -->
+                                            </div>
+                                            <div class="dropdown-menu" style="margin-right: 100px;">
+                                                <ul>
+                                                    <li><a href="#">Manage Account</a></li>
+                                                    <li><a href="{{ route('logout') }}">Sign Out</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="user-name">
-                                            {{ Auth::user()->name }}
-                                            <span class="dropdown-arrow">&#9662;</span> <!-- Dropdown arrow -->
-                                        </div>
-                                        <div class="dropdown-menu" style="margin-right: 100px;">
-                                            <ul>
-                                                <li><a href="#">Manage Account</a></li>
-                                                <li><a href="{{route('logout')}}">Sign Out</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
                             </div>
-                            @else
-                            <a href="{{ route('register') }}" class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">Sign In / Register</a>
+                        @else
+                            <a href="{{ route('register') }}"
+                                class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">Sign
+                                In / Register</a>
                             @endif
                         </div>
-                        <div class="d-none xl:d-flex x-gap-20 items-center text-white" data-x="header-mobile-icons" data-x-toggle="text-white">
+                        <div class="d-none xl:d-flex x-gap-20 items-center text-white" data-x="header-mobile-icons"
+                            data-x-toggle="text-white">
                             <div><a href="#!" class="d-flex items-center icon-user text-inherit text-22"></a></div>
-                            <div><button class="d-flex items-center icon-menu text-inherit text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
+                            <div><button class="d-flex items-center icon-menu text-inherit text-20"
+                                    data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,19 +159,28 @@
                             </div>
                             <div class="col-auto">
                                 <button class="d-flex items-center text-16 text-white" data-x-click="lang">
-                                    <img src="{{ asset('front/img/general/india.png') }}" alt="image" class="rounded-full mr-10" height="20" width="20">
+                                    <img src="{{ asset('front/img/general/india.png') }}" alt="image"
+                                        class="rounded-full mr-10" height="20" width="20">
                                     <span class="js-language-mainTitle ">India</span>
                                     <!-- <i class="icon-chevron-sm-down text-7 ml-15"></i> -->
                                 </button>
                             </div>
                         </div>
                         <div class="d-flex items-center">
-                            <a href="{{ url('get-property') }}" class="button px-20 fw-400 text-16 -white bg-white h-50 text-dark-1">List Your Property</a>
-                            <a href="{{ route('register') }}" class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">Sign In / Register</a>
+                            <a href="{{ url('get-property') }}"
+                                class="button px-20 fw-400 text-16 -white bg-white h-50 text-dark-1">List Your
+                                Property</a>
+                            <a href="{{ route('register') }}"
+                                class="button px-20 fw-400 text-16 border-white -outline-white h-50 text-white ml-20">Sign
+                                In / Register</a>
                         </div>
-                        <div class="d-none xxl:d-none xl:d-flex x-gap-20 items-center  text-white" data-x="header-mobile-icons" data-x-toggle="text-white">
-                            <div><a href="#!" class="d-flex items-center icon-user text-inherit text-22"></a></div>
-                            <div><button class="d-flex items-center icon-menu text-inherit text-20" data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button></div>
+                        <div class="d-none xxl:d-none xl:d-flex x-gap-20 items-center  text-white"
+                            data-x="header-mobile-icons" data-x-toggle="text-white">
+                            <div><a href="#!" class="d-flex items-center icon-user text-inherit text-22"></a>
+                            </div>
+                            <div><button class="d-flex items-center icon-menu text-inherit text-20"
+                                    data-x-click="html, header, header-logo, header-mobile-icons, mobile-menu"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -167,7 +188,8 @@
         </header>
         <section data-anim-wrap class="masthead -type-1 z-5">
             <div data-anim-child="fade" class="masthead__bg">
-                <img src="#" alt="image" data-src="{{ asset('front/img/masthead/1/bg.webp') }}" class="js-lazy">
+                <img src="#" alt="image" data-src="{{ asset('front/img/masthead/1/bg.webp') }}"
+                    class="js-lazy">
             </div>
 
             <div class="container">
@@ -177,7 +199,8 @@
                             <div class="row y-gap-20">
                                 <div class="col-12">
                                     <h1 class="text-22 fw-500">Sign in or create an account</h1>
-                                    <p class="mt-10">Already have an account? <a href="{{ route('login') }}" class="text-blue-1">Log in</a></p>
+                                    <p class="mt-10">Already have an account? <a href="{{ route('login') }}"
+                                            class="text-blue-1">Log in</a></p>
                                 </div>
 
                                 <form action="{{ route('register') }}" method="POST" class="sign-up-form">
@@ -185,7 +208,8 @@
 
                                     <div class="col-12 mb-5">
                                         <div class="form-input">
-                                            <input class="user_name" type="text" required name="name" value="{{ old('name') }}" autocomplete="one-time-code" />
+                                            <input class="user_name" type="text" required name="name"
+                                                value="{{ old('name') }}" autocomplete="one-time-code" />
                                             <label class="lh-1 text-14 text-light-1">Name</label>
                                         </div>
                                         <span class="error text-danger" id="nameError"></span>
@@ -193,7 +217,8 @@
 
                                     <div class="col-12">
                                         <div class="form-input">
-                                            <input class="email_input" type="email" name="email" required value="{{ old('email') }}" autocomplete="one-time-code" />
+                                            <input class="email_input" type="email" name="email" required
+                                                value="{{ old('email') }}" autocomplete="one-time-code" />
                                             <label class="lh-1 text-14 text-light-1">Email</label>
                                         </div>
                                         <span class="text-danger error" id="emailError"></span>
@@ -201,7 +226,8 @@
 
                                     <div class="col-12">
                                         <div class="form-input position-relative">
-                                            <input type="password" name="password" id="password" autocomplete="one-time-code" required />
+                                            <input type="password" name="password" id="password"
+                                                autocomplete="one-time-code" required />
                                             <label class="lh-1 text-14 text-light-1">Password</label>
                                             <span class="toggle-password" onclick="togglePassword('password')">
                                                 <i class="fas fa-eye text-light-1" id="eye-icon-password"></i>
@@ -211,7 +237,8 @@
 
                                     <div class="col-12">
                                         <div class="form-input position-relative">
-                                            <input type="password" name="cpassword" id="cpassword" autocomplete="one-time-code" required />
+                                            <input type="password" name="cpassword" id="cpassword"
+                                                autocomplete="one-time-code" required />
                                             <label class="lh-1 text-14 text-light-1">Confirm Password</label>
                                             <span class="toggle-password" onclick="togglePassword('cpassword')">
                                                 <i class="fas fa-eye text-light-1" id="eye-icon-cpassword"></i>
@@ -232,7 +259,8 @@
                                     </div> -->
 
                                     <div class="col-12">
-                                        <button type="submit" class="button py-20 -dark-1 bg-blue-1 text-white mt-20">
+                                        <button type="submit"
+                                            class="button py-20 -dark-1 bg-blue-1 text-white mt-20">
                                             Sign Up
                                             <div class="icon-arrow-top-right ml-15"></div>
                                         </button>
@@ -245,7 +273,7 @@
                                 <div class="col-12">
                                     <div class="text-center">or sign in with</div>
 
-                                    <a href="#"
+                                    {{-- <a href="#"
                                         style="cursor: pointer;"
                                         class="button col-12 -outline-blue-1 text-blue-1 py-15 rounded-8 mt-10">
                                         <i class="icon-facebook text-15 mr-10"></i>
@@ -257,7 +285,7 @@
                                         class="button col-12 -outline-red-1 text-red-1 py-15 rounded-8 mt-15">
                                         <i class="icon-google text-15 mr-10"></i>
                                         Google
-                                    </a>
+                                    </a> --}}
 
 
                                     <!-- <button class="button col-12 -outline-dark-2 text-dark-2 py-15 rounded-8 mt-15">
@@ -267,7 +295,8 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <div class="text-center px-30">By signing in, I agree to GoTrip Terms of Use and Privacy Policy.</div>
+                                    <div class="text-center px-30">By signing in, I agree to GoTrip Terms of Use and
+                                        Privacy Policy.</div>
                                 </div>
                             </div>
                         </div>
@@ -277,7 +306,7 @@
         </section>
 
         @php
-        $footer_single = \App\Models\Footer::first();
+            $footer_single = \App\Models\Footer::first();
         @endphp
 
         <footer class="footer -type-1">
@@ -289,12 +318,14 @@
 
                             <div class="mt-30 footer-contact-info">
                                 <div class="text-14 mt-30">Toll Free Customer Care</div>
-                                <a href="tel:+918530653748" class="text-18 fw-500 text-blue-1 mt-5">+91 {{$footer_single->mobile_no}}</a>
+                                <a href="tel:+918530653748" class="text-18 fw-500 text-blue-1 mt-5">+91
+                                    {{ $footer_single->mobile_no }}</a>
                             </div>
 
                             <div class="mt-35 footer-contact-info">
                                 <div class="text-14 mt-30">Need live support?</div>
-                                <a href="mailto:info@example.com" class="text-18 fw-500 text-blue-1 mt-5">{{$footer_single->email}}</a>
+                                <a href="mailto:info@example.com"
+                                    class="text-18 fw-500 text-blue-1 mt-5">{{ $footer_single->email }}</a>
                             </div>
                         </div>
 
@@ -302,11 +333,11 @@
                             <h5 class="text-16 fw-500 mb-30">Company</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">About Us</a>
-                                <a href="#">Careers</a>
+                                {{-- <a href="#">Careers</a> --}}
                                 <a href="#">Blog</a>
-                                <a href="#">Press</a>
+                                {{-- <a href="#">Press</a>
                                 <a href="#">Gift Cards</a>
-                                <a href="#">Magazine</a>
+                                <a href="#">Magazine</a> --}}
                             </div>
                         </div>
 
@@ -314,14 +345,14 @@
                             <h5 class="text-16 fw-500 mb-30">Support</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">Contact</a>
-                                <a href="#">Legal Notice</a>
+                                {{-- <a href="#">Legal Notice</a> --}}
                                 <a href="#">Privacy Policy</a>
                                 <a href="#">Terms and Conditions</a>
-                                <a href="#">Sitemap</a>
+                                {{-- <a href="#">Sitemap</a> --}}
                             </div>
                         </div>
 
-                        <div class="col-xl-2 col-lg-4 col-sm-6">
+                        {{-- <div class="col-xl-2 col-lg-4 col-sm-6">
                             <h5 class="text-16 fw-500 mb-30">Other Services</h5>
                             <div class="d-flex y-gap-10 flex-column">
                                 <a href="#">Car hire</a>
@@ -332,9 +363,9 @@
                                 <a href="#">Holiday Rental</a>
                                 <a href="#">Travel Agents</a>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="col-xl-2 col-sm-6 col-12">
+                        {{-- <div class="col-xl-2 col-sm-6 col-12">
                             <h5 class="text-16 fw-500 mb-30">Mobile</h5>
                             <div class="d-flex items-center px-5 py-10 rounded-4 border-light">
                                 <div class="icon-apple text-24"></div>
@@ -350,7 +381,7 @@
                                     <div class="text-15 lh-1 fw-500">Google Play</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
 
@@ -360,7 +391,9 @@
                             <div class="row x-gap-30 y-gap-10">
                                 <div class="col-auto">
                                     <div class="d-flex items-center">
-                                        Copyright 2024 . All Rights Reserved By Pearl Organisation
+                                        Copyright <?php echo date('Y'); ?> . All Rights Reserved By <a
+                                            href="https://pearlorganisation.com/" target="self" class="ml-5">PEARL
+                                            ORGANISATION™</a>
                                     </div>
                                 </div>
 
@@ -368,7 +401,7 @@
                                     <div class="d-flex x-gap-15">
                                         <a href="#">Privacy</a>
                                         <a href="#">Terms</a>
-                                        <a href="#">Site Map</a>
+                                        {{-- <a href="#">Site Map</a> --}}
                                     </div>
                                 </div>
                             </div>
@@ -383,10 +416,10 @@
                                             <span class="underline">English (US)</span>
                                         </button>
 
-                                        <button class="d-flex items-center text-14 fw-500 text-dark-1">
+                                        {{-- <button class="d-flex items-center text-14 fw-500 text-dark-1">
                                             <i class="icon-usd text-16 mr-10"></i>
                                             <span class="underline">USD</span>
-                                        </button>
+                                        </button> --}}
                                     </div>
                                 </div>
 
@@ -997,23 +1030,28 @@
                         <h5 class="text-18 fw-500 mb-10">Star Rating</h5>
                         <div class="row x-gap-10 y-gap-10 pt-10">
                             <div class="col-auto">
-                                <a href="#" class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">1</a>
+                                <a href="#"
+                                    class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">1</a>
                             </div>
 
                             <div class="col-auto">
-                                <a href="#" class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">2</a>
+                                <a href="#"
+                                    class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">2</a>
                             </div>
 
                             <div class="col-auto">
-                                <a href="#" class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">3</a>
+                                <a href="#"
+                                    class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">3</a>
                             </div>
 
                             <div class="col-auto">
-                                <a href="#" class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">4</a>
+                                <a href="#"
+                                    class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">4</a>
                             </div>
 
                             <div class="col-auto">
-                                <a href="#" class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">5</a>
+                                <a href="#"
+                                    class="button -blue-1 bg-blue-1-05 text-blue-1 py-5 px-20 rounded-100">5</a>
                             </div>
                         </div>
                     </div>
@@ -1319,7 +1357,9 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" data-src="{{  asset('front/img/hotels/1.png') }}" alt="image" class="js-lazy">
+                                    <img src="{{ asset('front/img/hotels/1.png') }}"
+                                        data-src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="js-lazy">
                                 </div>
                             </div>
 
@@ -1374,7 +1414,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1429,7 +1470,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1484,7 +1526,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1539,7 +1582,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1594,7 +1638,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1649,7 +1694,8 @@
                         <div class="row x-gap-20 y-gap-20">
                             <div class="col-md-auto">
                                 <div class="ratio ratio-1:1 size-120">
-                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image" class="img-ratio rounded-4" />
+                                    <img src="{{ asset('front/img/hotels/1.png') }}" alt="image"
+                                        class="img-ratio rounded-4" />
                                 </div>
                             </div>
 
@@ -1711,50 +1757,52 @@
     <!-- JavaScript -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAz77U5XQuEME6TpftaMdX0bBelQxXRlM"></script>
     <script src="../../../unpkg.com/%40googlemaps/markerclusterer%402.5.3/dist/index.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="{{asset('front/js/validate.js')}}"></script>
+    <script src="{{ asset('front/js/validate.js') }}"></script>
 
-    @if(session('success'))
-    <script>
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "{{ session('success') }}",
-            showConfirmButton: false,
-            timer: 1500
-        });
-    </script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "{{ session('success') }}",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>
     @endif
 
-    @if(session('error'))
-    <script>
-        Swal.fire({
-            position: "top-end",
-            icon: "error",
-            title: "Error Occurred",
-            text: "{{ session('error') }}",
-            showConfirmButton: true,
-            iconColor: '#FF0000'
-        });
-    </script>
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "error",
+                title: "Error Occurred",
+                text: "{{ session('error') }}",
+                showConfirmButton: true,
+                iconColor: '#FF0000'
+            });
+        </script>
     @endif
 
-    @if($errors->any())
-    <script>
-        Swal.fire({
-            position: "top-end",
-            icon: "warning",
-            title: "Validation Failed!",
-            html: `<ul>
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                position: "top-end",
+                icon: "warning",
+                title: "Validation Failed!",
+                html: `<ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>`,
-            showConfirmButton: true,
-            iconColor: '#FFA500'
-        });
-    </script>
+                showConfirmButton: true,
+                iconColor: '#FFA500'
+            });
+        </script>
     @endif
 
     <script src="{{ asset('front/js/vendors.js') }}"></script>
@@ -1763,7 +1811,8 @@
     <script>
         function togglePassword(fieldId) {
             const passwordField = document.getElementById(fieldId);
-            const eyeIcon = fieldId === 'password' ? document.getElementById('eye-icon-password') : document.getElementById('eye-icon-cpassword');
+            const eyeIcon = fieldId === 'password' ? document.getElementById('eye-icon-password') : document.getElementById(
+                'eye-icon-cpassword');
 
             const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordField.setAttribute('type', type);
