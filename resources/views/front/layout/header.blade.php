@@ -5,7 +5,7 @@
         <div class="d-flex items-center">
           <a href="{{ url('/') }}" class="header-logo mr-20" data-x="header-logo" data-x-toggle="is-logo-dark">
             <img src="{{ asset('front/img/logo/logo_3.png') }}" alt="logo icon">
-            <img src="{{ asset('front/img/logo/logo_3.png') }}" alt="logo icon">
+            {{-- <img src="{{ asset('front/img/logo/logo_3.png') }}" alt="logo icon"> --}}
           </a>
         </div>
       </div>

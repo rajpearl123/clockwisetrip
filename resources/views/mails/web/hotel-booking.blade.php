@@ -7,7 +7,7 @@
             <table width="900" cellpadding="0" cellspacing="0" style="background: #ffffff; border: 1px solid #ddd; border-radius: 8px;">
                 <tr>
                     <td style="padding: 20px; text-align: center; border-bottom: 1px solid #ddd;background-color: #d93025;">
-                        <img src="{{ asset('front/img/logo/chockwisehotel_logo.png') }}" height="110px" width="300px" alt="logo">
+                        <img src="{{ asset('front/img/logo/logo_3.png') }}" height="110px" width="300px" alt="logo">
                         <h2 style="margin: 0; font-size: 20px; color: #fff;">Invoice for Hotel Booking</h2>
                     </td>
                 </tr>
@@ -116,13 +116,13 @@
                                     @endif
                                 </td>
                             </tr>
-                            <tr>
-                                <td style="padding: 8px; border: 1px solid #ddd;">Service Charge Amount</td>
+                            <tr style="font-weight: bold; background-color: #f8f8f8;">
+                                <td style="padding: 8px; border: 1px solid #ddd;">Service Charge Amount (15%)</td>
                                 <td style="padding: 8px; border: 1px solid #ddd; text-align: right;"> {{ $booking['admin_commision'] ?? ''  }}</td>
                             </tr>
 
                             <tr style="font-weight: bold; background-color: #f8f8f8;">
-                                <td style="padding: 8px; border: 1px solid #ddd;">Gst Amount</td>
+                                <td style="padding: 8px; border: 1px solid #ddd;">Gst Amount (18%)</td>
                                 <td style="padding: 8px; border: 1px solid #ddd; text-align: right;">{{ $booking['gst'] ?? '' }}</td>
                             </tr>
 

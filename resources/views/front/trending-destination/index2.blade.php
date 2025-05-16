@@ -156,9 +156,8 @@
 
           <div id="overview" class="col-12">
             <h3 class="text-22 fw-500 pt-20 border-top-light">Overview</h3>
-
             <p class="text-dark-1 text-15 mt-10">
-              {{ strip_tags($single_propertys->description) ?? ''}}
+              {!! html_entity_decode(strip_tags($single_propertys->description)) !!}
             </p>
           </div>
 
@@ -270,11 +269,11 @@
               @foreach($comments as $comment)
               <div class="col-md-12 mb-3">
                 <div class="reply p-3 border rounded d-flex gap-3">
-                  <img src="https://test.pearl-developer.com/clockwisehotel/public/front/img/general/india.png" alt="" style="border-radius: 50%;width:50px;height:50px;">
+                  <img src="{{ asset('/public/profile_images/' . ($single_user && $single_user->profile_image ? $single_user->profile_image : 'https://example.com/path/to/default-logo.png')) }}" alt="" style="border-radius: 50%;width:50px;height:50px;">
                   <div>
                     <p><strong>{{ $comment->name }}</strong></p>
                   <p>{{ $comment->comment }}</p>
-                  <p><small>{{ $comment->created_at }}</small></p>
+                  <p><small>{{ $comment->created_at->format('F j, Y \a\t h:i A') }}</small></p>
                   </div>
                 </div>
               </div>

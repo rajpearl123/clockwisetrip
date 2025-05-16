@@ -78,7 +78,7 @@
         <div class="container">
             <h1>Invoice Details</h1>
             <div class="main-img">
-            <img src="{{ asset('front/img/logo/chockwisehotel_logo.png') }}" height="auto" width="250px"  alt="logo" >
+            <img src="{{ asset('front/img/logo/logo_3.png') }}" height="auto" width="250px"  alt="logo" >
         </div>
 
 

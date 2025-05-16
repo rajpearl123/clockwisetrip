@@ -55,7 +55,7 @@
             </div>
         </div>
 
-        <div class="preloader__title">clockwisehotel.com</div>
+        <div class="preloader__title">clockwisetrip.com</div>
     </div>
 
     <main>

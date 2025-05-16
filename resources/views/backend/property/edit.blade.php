@@ -25,7 +25,7 @@
 					</div>
 					<div class="col-md-6" style="margin-top: 2%;">
 						<label>Add Other Property Image <span class="text-danger" >*</span></label>
-						<input type="file" class="form-control" name="image[]" multiple accept="image/*" required>
+						<input type="file" class="form-control" name="image[]" multiple accept="image/*">
 						@error('image')
 						<div class="text-danger">{{ $message }}</div>
 						@enderror

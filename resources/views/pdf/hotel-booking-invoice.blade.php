@@ -5,9 +5,9 @@
 				<tr>
 					<td style="padding: 5px 20px; text-align: center; border-bottom: 1px solid #ddd; background-color: #d93025;">
 						@php
-						$logoPath = public_path('front/img/logo/clockwise_trip.jpg');
-						$logoData = base64_encode(file_get_contents($logoPath));
-						$logoSrc = 'data:image/png;base64,' . $logoData;
+							$logoFile = public_path('front/img/logo/logo_3.png'); // Use correct filesystem path
+							$logoData = base64_encode(file_get_contents($logoFile));
+							$logoSrc = 'data:image/png;base64,' . $logoData;
 						@endphp
 						<img src="{{$logoSrc}}" height="80px" width="300px" alt="logo">
 						<h2 style="margin: 0; font-size: 20px; color: #fff;">Invoice for Hotel Booking</h2>

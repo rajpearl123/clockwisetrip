@@ -62,7 +62,8 @@
                                 <div>
                                     <!-- <div class="text-14 text-light-1 mt-50 md:mt-20">{{ $property->adult ?? '0' }} adults</div> -->
                                     <div class="text-22 lh-12 fw-600 mt-5">₹{{$property->price}} Per Night</div>
-                                    <a href="{{ route('trendingDestinationDetails', ['slug' => $property->slug]) }}" class="button -md -dark-1 bg-blue-1 text-white mt-24">View Destination</a>
+                                    
+                                    <a href="{{ route('trendingDestinationDetailss', ['slug' => $property->slug]) }}" class="button -md -dark-1 bg-blue-1 text-white mt-24">View Destination</a>
                                 </div>
                             </div>
                         @endforeach

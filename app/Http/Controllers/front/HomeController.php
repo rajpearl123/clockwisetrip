@@ -93,6 +93,7 @@ class HomeController extends Controller
     {
         $user = Auth::check();
         if ($user) {
+            //dd("hrere");
             return view('front.trending-destination.index2');
         } else {
             return redirect('/login');
@@ -106,6 +107,7 @@ class HomeController extends Controller
 
     public function bokkingDetails()
     {
+        //dd("raj");
         return view('front.booking.index2');
     }
 
@@ -194,28 +196,46 @@ class HomeController extends Controller
         // dd($slug);
         $propertycategory = PropertyCategory::where('slug', $slug)->first();
         $propertys = Property::where('property_category_id', $propertycategory->id)->get();
-        if($propertys->isEmpty()){
-            return redirect()->back()->with('error','No properties found for this category.');
+        if ($propertys->isEmpty()) {
+            return redirect()->back()->with('error', 'No properties found for this category.');
         }
         return view('front.property-category.index', compact('propertycategory', 'propertys'));
     }
 
     public function single_propertyListSlug($slug)
     {
+        //dd("Here");
         //dd($slug);
-        $single_propertys = Property::where('slug', $slug)->first();
+        $user = Auth::user();
+        $single_propertys = DB::table('propertys')->where('slug', $slug)->first();
+        //dd($single_propertys);
         $property_id = $single_propertys->id;
-        $propertycategory = PropertyCategory::where('id', $single_propertys->property_category_id)->first();
+        //dd($single_propertys->property_category_id);
+        $propertycategory = DB::table('property_categorys')->where('id', $single_propertys->property_category_id)->first();
+        //dd($propertycategory);
         $propertys = Property::where('property_category_id', $propertycategory->id)->get();
+        //dd($propertys);
         $price_tax = TaxRate::where('property_id', $property_id)->first();
+        // if (Auth::check()) {
+        //     $comments = Comment::where('user_id', Auth::user()->id)->get();
+        // } else {
+        //     $comments = Comment::where('created_at', '>=', Carbon::now()->subDays(10))
+        //         ->where('is_status', 0)
+        //         ->get();
+        // }
+
+
         if (Auth::check()) {
-            $comments = Comment::where('user_id', Auth::user()->id)->get();
+            $comments = Comment::where('user_id', Auth::user()->id)
+                ->where('is_status', 1)
+                ->get();
         } else {
             $comments = Comment::where('created_at', '>=', Carbon::now()->subDays(10))
-                ->where('is_status', 0)
+                ->where('is_status', 1) // Changed from 0 to 1
                 ->get();
         }
-        return view('front.trending-destination.index2', compact('propertycategory', 'propertys', 'single_propertys', 'price_tax', 'comments'));
+        $single_user = User::where('id', $user->id)->first();
+        return view('front.trending-destination.index2', compact('propertycategory', 'propertys', 'single_propertys', 'price_tax', 'comments', 'single_user'));
     }
 
     public function propertyListAll()
@@ -269,19 +289,19 @@ class HomeController extends Controller
         $location = isset($searchData['location']) ? $searchData['location'] : null;
         if ($location) {
             $location = explode(',', $location)[0];
-            
+
             $city = City::where('name', 'like', '%' . $location . '%')->first();
             // dd($location,$city);
             if ($city) {
-                $properties = Property::where('city_id', $city->id)->where('status','1')->get();
+                $properties = Property::where('city_id', $city->id)->where('status', '1')->get();
             } else {
-                $properties = []; 
+                $properties = [];
             }
         } else {
-            $properties = []; 
+            $properties = [];
         }
         // dd($searchData, $location,$properties,$city);
-        return view('front.trending-destination.index',compact('properties','searchData'));
+        return view('front.trending-destination.index', compact('properties', 'searchData'));
     }
 
 
@@ -295,28 +315,28 @@ class HomeController extends Controller
         $adults = $request->input('adult_count');
         $children = $request->input('child_count');
         $rooms = $request->input('room_count');
-    
+
         $query = Property::query();
-    
+
         if (!empty($location)) {
             $locationParts = explode(',', $location);
             $cityName = trim($locationParts[0] ?? '');
             $stateName = trim($locationParts[1] ?? '');
             $countryName = trim($locationParts[2] ?? '');
-    
+
             $city = DB::table('cities')->where('name', $cityName)->first();
             $state = DB::table('states')->where('name', $stateName)->first();
             $country = DB::table('countries')->where('name', $countryName)->first();
-    
+
             // Ensure that city is found before applying the filter
             if ($city && $countryName) {
                 $query->where('city_id', $city->id);
             }
         }
-       
+
         // Get the filtered data
         $filter_data = $query->get();
-    
+
         // Prepare the search data
         $search_data = [
             "location" => $location,
@@ -335,7 +355,7 @@ class HomeController extends Controller
             "message" => "Properties retrieved successfully."
         ]);
     }
-    
+
 
     public function reset(Request $request)
     {
@@ -504,7 +524,7 @@ class HomeController extends Controller
 
     public function city_wise_property($city_id)
     {
-        $city_wise_property = Property::where('city_id', $city_id)->where('status','1')->get();
+        $city_wise_property = Property::where('city_id', $city_id)->where('status', '1')->get();
         return view('front.property-category.city_wise_property', compact('city_wise_property'));
     }
 
@@ -543,11 +563,11 @@ class HomeController extends Controller
     {
         // dd($req->all());
         $property = Property::find($req->property_id);
-        if(!$property){
-            return back()->with('error','Property Not Found!');
+        if (!$property) {
+            return back()->with('error', 'Property Not Found!');
         }
         $decoedImage = json_decode($property->image, true);
-        return view('front.checkout.summary',compact('property','decoedImage'));
+        return view('front.checkout.summary', compact('property', 'decoedImage'));
     }
 
     public function storeNewsletter(Request $request)
@@ -555,19 +575,18 @@ class HomeController extends Controller
         $request->validate([
             'email' => 'required|email|unique:newsletters,email',
         ]);
-    
+
         // Save to DB
         Newsletter::create([
             'email' => $request->email,
         ]);
-    
+
         // Send email
         Mail::send('emails.subscription_confirmation', ['email' => $request->email], function ($message) use ($request) {
             $message->to($request->email)
-                    ->subject('Thanks for Subscribing!');
+                ->subject('Thanks for Subscribing!');
         });
-    
+
         return redirect()->back()->with('success', 'Subscribed successfully!');
     }
-
 }

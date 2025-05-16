@@ -131,6 +131,7 @@ class PropertyController extends Controller
         if ($req->has('title') && $req->title) {
             $query->where('title', 'LIKE', '%' . $req->title . '%');
         }
+        $single_user = User::where('id', $user->id)->first();
         $propertys = $query->paginate(10);
         $facilities = Facility::get();
         $categories = DB::table('property_categorys')->get();
@@ -138,7 +139,7 @@ class PropertyController extends Controller
         $states = DB::table('states')->get();
         $cities = DB::table('cities')->get();
         // dd($propertys);
-        return view('backend.property.index2', compact('propertys','facilities','categories','countries','states','cities'));       
+        return view('backend.property.index2', compact('propertys','facilities','categories','countries','states','cities', 'single_user'));       
     }
 
     public function editPropertyDetail($id){
@@ -376,7 +377,7 @@ class PropertyController extends Controller
             return back()->with('error', 'Property not found!');
         }
 
-        $property->deleted_at = 0; 
+        $property->delete(); 
         $property->save();
 
         return back()->with('success', 'Weekend Deal Property deleted successfully!');
